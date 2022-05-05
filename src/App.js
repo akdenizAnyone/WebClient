@@ -3,7 +3,7 @@ import React from 'react'
 const App = () => {
   return (
     <div>
-      <h1 className='bg-blue-500'>App furkandlfdkf</h1>
+      <h1 className='text-gray-light'>Test Theme</h1>
     </div>
   )
 }
