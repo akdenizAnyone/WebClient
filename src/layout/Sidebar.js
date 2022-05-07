@@ -28,11 +28,11 @@ const Sidebar = () => {
   return (
     <div className='px-2 flex flex-col justify-between w-72'>
       <div>
-        <div className='flex'>
-          <div className='mt-1 mb-24 ml-1 hover:bg-black flex items-center justify-center w-12 h-12 rounded-full transform transition-colors duration-200'>
+        <div className='flex group'>
+          <div className='mt-1 mb-24 ml-1 group-hover:bg-black flex items-center justify-center w-12 h-12 rounded-full transform transition-colors duration-200'>
             <img src={anyoneLogo} alt="Anyone Logo" className='w-14 h-20' />
           </div>
-          <a href='http://localhost:3000' className='ml-4 pt-3 font-bold text-xl'>Anyone</a>
+          <a href='#1' className='ml-4 pt-3 font-bold text-xl group-hover:text-primary-base transform transition-colors duration-200'>Anyone</a>
         </div>
 
         <nav className='mb-16'>
