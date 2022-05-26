@@ -10,13 +10,23 @@ import {
 } from "../icons/index";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import { Avatar } from "@material-ui/core";
-import { Link, useLocation } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link, useLocation, useHistory } from "react-router-dom";
 
 function Sidebar() {
-  const [location] = React.useState(useLocation().pathname);
+  const history = useHistory();
+  const location = useLocation();
+  const data = location.state;
+
+  const fullName=data[0].name+" "+data[0].lastname;
+  const username =data[0].username;
+
+  
+
   return (
     <div className="sidebar">
+      <ToastContainer position="bottom-center" />
       <TwitterIcon className="twitter-icon" />
       <Link to="/home" style={{ textDecoration: "none" }}>
         <SidebarItem
@@ -46,20 +56,14 @@ function Sidebar() {
           active={location === "/Profile" && true}
         />
       </Link>
-      <div className="tweetButton">
-        <SetTweetIcon className="setTweetIcon" />
-        <span>Tweet</span>
-      </div>
       <div className="profileCard">
-        <div className="profileCardImage">
-          <Avatar src="https://avatars.githubusercontent.com/u/79963893?s=400&u=1c4628727238a10a4055584f750b1de99e2866f8&v=4" />
-        </div>
+        
         <div className="profileCardNameCol">
           <div className="profileCardNameColName">
-            <span>Furkan Can Tavukcu</span>
+            <a>{fullName}</a>
           </div>
           <div className="profileCardNameColuserName">
-            <span>@Furkan-can</span>
+            <span>{username}</span>
           </div>
         </div>
         <div className="profileCardIcon">

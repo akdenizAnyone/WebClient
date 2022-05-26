@@ -2,6 +2,10 @@ import React,{useState} from "react";
 import "./Signup.css";
 import Logo from "../../components/icons/Logo";
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Signup() {
 
@@ -18,17 +22,25 @@ function Signup() {
 
 
   async function register(){
-    let item={name,lastName,email,userName,password,confirmPassword};
-    console.warn(item)
-
-    let result = await fetch('http://127.0.0.1:5555/api/Account/register',{
-      method: 'POST',
-      headers:{'Content-type':'application/json',"Accept":'application/json'},
-          body: JSON.stringify(item)
+    
+    axios.post('http://127.0.0.1:5555/api/Account/register', {
+      firstName: email,
+      lastName: password,
+      email: email,
+      userName:userName,
+      password:password,
+      confirmPassword:confirmPassword
     })
-  result=await result.json();
-  localStorage.setItem("user-info",JSON.stringify(result))
-  history.push("/login")
+      .then(function (response) {
+      
+        if(response["data"]['succeeded']){
+          history.push("/login")
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        toast.error("Check the entered information. Special character, numbers, and upper and lower case letters are required in the password.");
+      });
   };
 
   return (
@@ -60,8 +72,8 @@ function Signup() {
             accordingly, others can find you by email or phone number.
           </span>
         </div>
-        <button onClick={register} className="signupBtn">Kaydol</button>
-       
+        <button onClick={register} className="signupBtn">Sign Up</button>
+        <ToastContainer position="bottom-center" />
       </div>
     </div>
   );
