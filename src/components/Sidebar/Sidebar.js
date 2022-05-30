@@ -15,24 +15,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useHistory } from "react-router-dom";
 
 function Sidebar() {
-  const history = useHistory();
   const location = useLocation();
-  const data = location.state;
 
-  const fullName=data[0].name+" "+data[0].lastname;
-  const username =data[0].username;
-
+  const username =sessionStorage.getItem("username")
+  const fullName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
   
 
   return (
     <div className="sidebar">
       <ToastContainer position="bottom-center" />
       <TwitterIcon className="twitter-icon" />
-      <Link to="/home" style={{ textDecoration: "none" }}>
+      <Link to="/Home" style={{ textDecoration: "none" }}>
         <SidebarItem
           text="Home"
           Icon={HomeIcon}
-          active={location === "/home" && true}
+          active={location === "/Home" && true}
         />
       </Link>
       <Link to="/explore" style={{ textDecoration: "none" }}>

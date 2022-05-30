@@ -10,6 +10,8 @@ import { MillToDate } from "../../../utils/MillToDate";
 import ProfileCard from "../../ProfileCard/ProfileCard";
 
 function Post({ userimage, username, displayName, text, shareImage, date }) {
+  username=sessionStorage.getItem("username")
+  displayName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
   const [isVisibleProfileCard, setIsVisibleProfileCard] = React.useState(false);
   return (
     <div className="post" onMouseLeave={() => setIsVisibleProfileCard(false)}>

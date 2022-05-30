@@ -8,6 +8,7 @@ import Home from "./pages/Home/Home";
 import Explore from "./pages/Explore/Explore";
 import Profile from "./pages/Profile/Profile";
 import Messages from "./pages/Messages/Messages";
+import Verify from './Verification/Verify';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/Explore" component={Explore} />
       <Route path="/Messages" component={Messages}></Route>
       <Route path="/Profile" component={Profile} />
+      <Route path="/verify" component={Verify} />
     </Switch>
   );
 }

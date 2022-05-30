@@ -5,6 +5,8 @@ import "./ProfileCard.css";
 
 const ProfileCard = ({ active }) => {
   const [isVisible, setIsVisible] = React.useState(false);
+  const username =sessionStorage.getItem("username")
+  const fullName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
   return (
     <div
       className={
@@ -20,11 +22,11 @@ const ProfileCard = ({ active }) => {
         </div>
       </div>
       <div>
-        <span>FurkanCan</span>
+        <span>{fullName}</span>
         <VerifiedIcon />
       </div>
       <div>
-        <span>@furkan-can</span>
+        <span>@{username}</span>
       </div>
       <div>
         <span>CSE Student</span>

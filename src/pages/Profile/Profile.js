@@ -18,8 +18,12 @@ import Loading from "../../components/Loading/Loading";
 const Profile = () => {
   const [category, setCategory] = React.useState(1);
   const { posts } = useSelector((state) => state.posts);
+
+  const username =sessionStorage.getItem("username")
+  const fullName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
+
   let history = useHistory();
-  document.title = "Furkan Can Tavukcu (@Furkan-can) / Twitter";
+  document.title = {fullName}+" (@"+{username}+") / Twitter";
   const [loading, setLoading] = React.useState(true);
   setTimeout(() => {
     setLoading(false);
@@ -32,7 +36,7 @@ const Profile = () => {
             <BackIcon />
           </div>
           <div>
-            <span>Furkan Can Tavukcu</span>
+            <span>{fullName}</span>
             <span>1 Tweets</span>
           </div>
         </div>
@@ -47,8 +51,8 @@ const Profile = () => {
             </div>
           </div>
           <div className="profileBiography">
-            <span>Furkan Can Tavukcu</span>
-            <span>@Furkan-can</span>
+            <span>{fullName}</span>
+            <span>{username}</span>
             <span>CSE Student</span>
             <span>
               <ScheduleIcon />

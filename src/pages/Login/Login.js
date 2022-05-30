@@ -9,13 +9,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
-
-
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const history = useHistory();
+  
+
+
   async function loginFunc() {
-    axios.post('http://127.0.0.1:5555/api/Account/authenticate', {
+    axios.post('https://anyone.azurewebsites.net/api/Account/authenticate', {
       email: email,
       password: password
     })
@@ -24,23 +25,17 @@ function Login() {
         console.log(response);
         console.log(response["data"]['succeeded'])
         if(response["data"]['succeeded']){
-          const data =[
-            {
-              email: response["data"]['data']['email'],
-              id: response["data"]['data']['id'],
-              jwToken: response["data"]['data']['jwToken'],
-              lastname: response["data"]['data']['lastName'],
-              name: response["data"]['data']['name'],
-              username:response["data"]['data']['userName']
-            }
-          ];
-          
+          sessionStorage.setItem("email",response["data"]['data']['email'])
+          sessionStorage.setItem("id",response["data"]['data']['id'])
+          sessionStorage.setItem("jwToken",response["data"]['data']['jwToken'])
+          sessionStorage.setItem("lastname",response["data"]['data']['lastName'])
+          sessionStorage.setItem("name",response["data"]['data']['firstName'])
+          sessionStorage.setItem("username",response["data"]['data']['userName'])
+
           history.push({
             pathname:'/Home',
-            state:data
           });
         }
-  
       })
       .catch(function (error) {
         console.log(error);
