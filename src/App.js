@@ -14,13 +14,13 @@ function App() {
   return (
     <Switch>
       <Route path="/" component={SignIndex} exact />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/home" component={Home} />
+      <Route path="/Login" component={Login} />
+      <Route path="/Signup" component={Signup} />
+      <Route path="/Home" component={Home} />
       <Route path="/Explore" component={Explore} />
       <Route path="/Messages" component={Messages}></Route>
       <Route path="/Profile" component={Profile} />
-      <Route path="/verify" component={Verify} />
+      <Route path="/Verify" component={Verify} />
     </Switch>
   );
 }

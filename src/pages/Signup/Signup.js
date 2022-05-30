@@ -39,7 +39,7 @@ function Signup() {
           var url = link1.match(regex)[1];
           var url2="https://anyone.azurewebsites.net"+url.substr(21,url.length)
           sessionStorage.setItem("link",url2)
-          history.push("/verify")
+          history.push("/Verify")
         }
       })
       .catch(function (error) {

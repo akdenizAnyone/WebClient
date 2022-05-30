@@ -7,13 +7,21 @@ function Verify() {
     async function handleClick() {
         console.log(link);
         window.open(link, '_blank', 'noopener,noreferrer');
-        history.push("/login");
-      };
+        history.push("/Login");
+    };
 
     return (
-        <div>
-            <a href='/login' onClick={handleClick}>Click me</a>
-         </div>
+        <div className="container">
+            <div className="panel">
+                <div className="loginLinks">
+                    <p className='header'>Please click the link below to confirm your membership.</p>
+                    <a href='/Login' onClick={handleClick}>
+                        <span className="link">Confirm Your Account</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     );
 }
 

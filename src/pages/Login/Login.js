@@ -32,6 +32,7 @@ function Login() {
           sessionStorage.setItem("name",response["data"]['data']['firstName'])
           sessionStorage.setItem("username",response["data"]['data']['userName'])
 
+          
           history.push({
             pathname:'/Home',
           });
