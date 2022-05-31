@@ -8,7 +8,7 @@ const posts = [
     displayName: "Furkan Can Tavukçu",
     text: "Bu projeyi github.com/furkan-can adresinden ulaşabilirsiniz.",
     shareImage: "",
-    date: "1",
+    date: "31",
   },
   
 ];

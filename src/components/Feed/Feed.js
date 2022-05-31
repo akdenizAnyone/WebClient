@@ -5,18 +5,18 @@ import Post from "./Post/Post";
 import HomeStars from "../icons/HomeStars";
 import BottomSidebar from "../BottomSidebar/BottomSidebar";
 import { useSelector } from "react-redux";
-import { Avatar } from "@material-ui/core";
 import Loading from "../Loading/Loading";
 import { useLocation,useHistory  } from 'react-router-dom';
 
 
 function Feed() {
-  const history = useHistory();
   const { posts } = useSelector((state) => state).posts;
   const [isDrawerBar, setIsDrawerBar] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const location = useLocation();
-  const data = location.state;
+  
+  const token=sessionStorage.getItem("jwToken")
+  
   
 
   setTimeout(() => {
@@ -37,6 +37,7 @@ function Feed() {
         <Loading />
       ) : (
         <article>
+
           {posts.map((post) => (
             <Post
               key={post.id}
