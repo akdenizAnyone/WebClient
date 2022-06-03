@@ -24,8 +24,8 @@ function Signup() {
   async function register() {
 
     axios.post('https://anyone.azurewebsites.net/api/Account/register', {
-      firstName: email,
-      lastName: password,
+      firstName: name,
+      lastName: lastName,
       email: email,
       userName: userName,
       password: password,

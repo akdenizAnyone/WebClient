@@ -28,8 +28,8 @@ function Login() {
           sessionStorage.setItem("email",response["data"]['data']['email'])
           sessionStorage.setItem("id",response["data"]['data']['id'])
           sessionStorage.setItem("jwToken",response["data"]['data']['jwToken'])
-          sessionStorage.setItem("lastname",response["data"]['data']['lastName'])
-          sessionStorage.setItem("name",response["data"]['data']['firstName'])
+          sessionStorage.setItem("lastName",response["data"]['data']['lastName'])
+          sessionStorage.setItem("firstName",response["data"]['data']['firstName'])
           sessionStorage.setItem("username",response["data"]['data']['userName'])
 
           
@@ -49,7 +49,7 @@ return (
     <div className="panel">
       <div className="panelHeader">
         <Logo width={39} fill="white" />
-        <span className="panelHeaderText">Login to Twitter</span>
+        <span className="panelHeaderText">Login to Anyone</span>
       </div>
       <div className="inputs inputdesign">
 
@@ -65,7 +65,7 @@ return (
         </a>
         <span className="point">.</span>
         <a href="/signup">
-          <span className="link">Sign up on Twitter</span>
+          <span className="link">Sign up on Anyone</span>
         </a>
       </div>
     </div>

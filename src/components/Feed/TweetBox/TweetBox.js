@@ -10,12 +10,14 @@ import { useDispatch } from "react-redux";
 import { addTweetAction } from "../../../store/actions/postActions";
 
 function TweetBox() {
+  const username=sessionStorage.getItem("username")
+  const fullname=sessionStorage.getItem("firstName")+" "+sessionStorage.getItem("lastName")
   const [tweet, setTweet] = useState({
     id: Date.now(),
     userimage:
       "https://avatars.githubusercontent.com/u/79963893?s=400&u=1c4628727238a10a4055584f750b1de99e2866f8&v=4",
-    username: "FurkanCan",
-    displayName: "Furkan Can Tavukcu",
+    username: {username},
+    displayName: {fullname},
     text: "",
     shareImage: "",
     date: Date.now(),

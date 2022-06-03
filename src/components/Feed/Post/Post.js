@@ -11,7 +11,7 @@ import ProfileCard from "../../ProfileCard/ProfileCard";
 
 function Post({ userimage, username, displayName, text, shareImage, date }) {
   username=sessionStorage.getItem("username")
-  displayName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
+  displayName=sessionStorage.getItem("firstName")+" "+sessionStorage.getItem("lastName")
   const [isVisibleProfileCard, setIsVisibleProfileCard] = React.useState(false);
   return (
     <div className="post" onMouseLeave={() => setIsVisibleProfileCard(false)}>

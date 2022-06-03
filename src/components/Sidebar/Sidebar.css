@@ -10,7 +10,7 @@
 .sidebar::-webkit-scrollbar {
   display: none;
 }
-.twitter-icon {
+.Anyone-icon {
   color: white;
   font-size: 30px !important;
   margin-top: 12px;
@@ -125,7 +125,7 @@
   .setTweetIcon {
     display: block;
   }
-  .twitter-icon {
+  .Anyone-icon {
     width: 20px;
     margin: 0px;
     padding: 10px;

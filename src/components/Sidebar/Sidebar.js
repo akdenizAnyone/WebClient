@@ -8,7 +8,7 @@ import {
   ExploreIcon,
   SetTweetIcon,
 } from "../icons/index";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import AnyoneIcon from "@material-ui/icons/Twitter";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,13 +18,13 @@ function Sidebar() {
   const location = useLocation();
 
   const username =sessionStorage.getItem("username")
-  const fullName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
+  const fullName=sessionStorage.getItem("firstName")+" "+sessionStorage.getItem("lastName")
   
 
   return (
     <div className="sidebar">
       <ToastContainer position="bottom-center" />
-      <TwitterIcon className="twitter-icon" />
+      <AnyoneIcon className="Anyone-icon" />
       <Link to="/Home" style={{ textDecoration: "none" }}>
         <SidebarItem
           text="Home"
@@ -32,11 +32,11 @@ function Sidebar() {
           active={location === "/Home" && true}
         />
       </Link>
-      <Link to="/explore" style={{ textDecoration: "none" }}>
+      <Link to="/Anonymous" style={{ textDecoration: "none" }}>
         <SidebarItem
-          text="Explore"
+          text="Anonymous"
           Icon={ExploreIcon}
-          active={location === "/explore" && true}
+          active={location === "/Anonymous" && true}
         />
       </Link>
       <Link to="/Messages" style={{ textDecoration: "none" }}>

@@ -6,7 +6,7 @@ import "./ProfileCard.css";
 const ProfileCard = ({ active }) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const username =sessionStorage.getItem("username")
-  const fullName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
+  const fullName=sessionStorage.getItem("firstName")+" "+sessionStorage.getItem("lastName")
   return (
     <div
       className={

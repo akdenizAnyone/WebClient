@@ -1,12 +1,12 @@
 import React from "react";
 import "./Explore.css";
+import { useHistory } from "react-router-dom";
 import FriendSuggestions from "../../components/Widgets/FriendSuggestions/FriendSuggestions";
 import SearchInput from "../../components/Widgets/SearchInput/SearchInput";
 import { SettingsIcon } from "../../components/icons";
 import Topics from "../../components/Widgets/Topics/Topics";
 import BottomSidebar from "../../components/BottomSidebar/BottomSidebar";
 import Links from "../../components/Widgets/Links/Links";
-import { Avatar } from "@material-ui/core";
 import HomeBox from "../../components/HomeBox/HomeBox";
 import Loading from "../../components/Loading/Loading";
 
@@ -16,7 +16,13 @@ function Explore() {
   setTimeout(() => {
     setLoading(false);
   }, 2000);
-  document.title = "Explore / Twitter";
+  document.title = "Anonymous / Anyone";
+
+  const isLogin = sessionStorage.getItem("firstName");
+  const history=useHistory();
+  if(isLogin == null){
+    history.push("/login")
+  }
   return (
     <HomeBox>
       <div className="feed">
@@ -27,10 +33,7 @@ function Explore() {
           />
         )}
         <div className="explore-header">
-          <div onClick={() => setIsDrawerBar(true)}>
-            <Avatar src="https://avatars.githubusercontent.com/u/38807255?s=460&u=deb087d587be7f6a4000e4e710ec4d1daa6fde84&v=4" />
-          </div>
-          <SearchInput placeholder="Search Twitter" />
+          <SearchInput placeholder="Search Anyone" />
           <SettingsIcon />
         </div>
         <div className="exploreContent">

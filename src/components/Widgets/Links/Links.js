@@ -16,7 +16,7 @@ const Links = () => {
           More
           <MoreHoriz />
         </span>
-        <span>2021 Twitter, Inc.</span>
+        <span>2022 Anyone, Inc.</span>
       </div>
     </div>
   );

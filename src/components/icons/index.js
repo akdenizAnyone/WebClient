@@ -36,4 +36,4 @@ export { default as DisplayIcon } from "./DisplayIcon";
 export { default as AddIcon } from "./AddIcon";
 export { default as DataSaverIcon } from "./DataSaverIcon";
 export { default as KeyboardShortcutsIcon } from "./KeyboardShortcutsIcon";
-export { default as TwitterAdsIcon } from "./TwitterAdsIcon";
+export { default as AnyoneAdsIcon } from "./AnyoneAdsIcon";

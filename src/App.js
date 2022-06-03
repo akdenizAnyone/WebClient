@@ -17,7 +17,7 @@ function App() {
       <Route path="/Login" component={Login} />
       <Route path="/Signup" component={Signup} />
       <Route path="/Home" component={Home} />
-      <Route path="/Explore" component={Explore} />
+      <Route path="/Anonymous" component={Explore} />
       <Route path="/Messages" component={Messages}></Route>
       <Route path="/Profile" component={Profile} />
       <Route path="/Verify" component={Verify} />

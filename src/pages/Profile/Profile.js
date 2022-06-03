@@ -20,14 +20,19 @@ const Profile = () => {
   const { posts } = useSelector((state) => state.posts);
 
   const username =sessionStorage.getItem("username")
-  const fullName=sessionStorage.getItem("name")+" "+sessionStorage.getItem("lastname")
+  const fullName=sessionStorage.getItem("firstName")+" "+sessionStorage.getItem("lastName")
 
   let history = useHistory();
-  document.title = {fullName}+" (@"+{username}+") / Twitter";
+  document.title = fullName+" (@"+username+") / Anyone";
   const [loading, setLoading] = React.useState(true);
   setTimeout(() => {
     setLoading(false);
   }, 2000);
+
+  const isLogin = sessionStorage.getItem("firstName");
+  if(isLogin == null){
+    history.push("/login")
+  }
   return (
     <HomeBox>
       <section className="feed">
@@ -61,11 +66,11 @@ const Profile = () => {
           </div>
           <div>
             <span>
-              <span>167</span>
+              <span>87</span>
               <span>Following</span>
             </span>
             <span>
-              <span>167</span>
+              <span>7854</span>
               <span>Followers</span>
             </span>
           </div>
@@ -116,7 +121,7 @@ const Profile = () => {
         <BottomSidebar />
       </section>
       <div className="widgets">
-        <SearchInput placeholder="Search Twitter" />
+        <SearchInput placeholder="Search Anyone" />
         <FriendSuggestions />
         <Topics />
         <Links />
