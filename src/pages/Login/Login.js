@@ -16,6 +16,7 @@ function Login() {
 
 
   async function loginFunc() {
+
     axios.post('https://anyone.azurewebsites.net/api/Account/authenticate', {
       email: email,
       password: password
@@ -27,6 +28,7 @@ function Login() {
         if(response["data"]['succeeded']){
           sessionStorage.setItem("email",response["data"]['data']['email'])
           sessionStorage.setItem("id",response["data"]['data']['id'])
+          sessionStorage.setItem("intId",response["data"]['data']['intId'])
           sessionStorage.setItem("jwToken",response["data"]['data']['jwToken'])
           sessionStorage.setItem("lastName",response["data"]['data']['lastName'])
           sessionStorage.setItem("firstName",response["data"]['data']['firstName'])

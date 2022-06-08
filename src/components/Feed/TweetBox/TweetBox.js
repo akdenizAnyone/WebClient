@@ -8,28 +8,45 @@ import EmojiIcon from "../../icons/EmojiIcon";
 import PlanIcon from "../../icons/PlanIcon";
 import { useDispatch } from "react-redux";
 import { addTweetAction } from "../../../store/actions/postActions";
+import axios from 'axios';
+function TweetBox({regenerate}) {
 
-function TweetBox() {
-  const username=sessionStorage.getItem("username")
-  const fullname=sessionStorage.getItem("firstName")+" "+sessionStorage.getItem("lastName")
+  const username = sessionStorage.getItem("username")
+  const fullname = sessionStorage.getItem("firstName") + " " + sessionStorage.getItem("lastName")
   const [tweet, setTweet] = useState({
     id: Date.now(),
     userimage:
       "https://avatars.githubusercontent.com/u/79963893?s=400&u=1c4628727238a10a4055584f750b1de99e2866f8&v=4",
-    username: {username},
-    displayName: {fullname},
+    username: { username },
+    displayName: { fullname },
     text: "",
     shareImage: "",
     date: Date.now(),
   });
 
   const dispatch = useDispatch();
+  const jwtToken= sessionStorage.getItem("jwToken");
+
   const tweetSubmit = (e) => {
     e.preventDefault();
     if (tweet.text.trim() === "") return;
     console.log(tweet);
     dispatch(addTweetAction(tweet));
     setTweet({ ...tweet, text: "" });
+
+
+    //Send database
+    axios({
+      method: 'post',
+      url: 'https://anyone.azurewebsites.net/api/v1/Post/Create',
+      data: {
+      "content": tweet.text 
+      },
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    }).then(()=>{regenerate()});
+
   };
   return (
     <>
@@ -48,6 +65,7 @@ function TweetBox() {
             />
           </div>
         </div>
+
         <div className="tweetboxRow">
           <div style={{ flex: 0.1 }}></div>
           <div className="tweetboxOptions">
@@ -56,7 +74,7 @@ function TweetBox() {
             <SurveyIcon className="tweetboxOptionIcon" width={22} height={22} />
             <EmojiIcon className="tweetboxOptionIcon" width={22} height={22} />
             <PlanIcon className="tweetboxOptionIcon" width={22} height={22} />
-            <button type="submit" className="tweetbox-button">
+            <button type="submit" className="tweetbox-button" >
               Tweet
             </button>
           </div>
